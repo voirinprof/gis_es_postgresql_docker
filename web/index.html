@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>GeoSpatial search with ES/PostgreSQL</title>
+<link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<h1>Find a person</h1>
+<div>
+    <h2>Generate data</h2>
+    <input type="number" id="count" value="100" min="1">
+    <button onclick="generateData()">Generate</button>
+    <button onclick="synchData()">Synchronize</button>
+</div>
+<div>
+    <h2>Simple search</h2>
+    <input type="text" id="searchText" placeholder="Name, city, email...">
+    <button onclick="searchText()">Search</button>
+</div>
+<div>
+    <h2>Geospatial search</h2>
+    <label>Latitude: <input type="number" id="lat" value="45.5" step="0.01"></label>
+    <label>Longitude: <input type="number" id="lon" value="-73.5" step="0.01"></label>
+    <label>Radius (m): <input type="number" id="radius" value="1000"></label>
+    <button onclick="searchGeo()">Search</button>
+</div>
+<h2>RResults</h2>
+<div id="results"></div>
+<script src="/static/js/search.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{
+    "settings": {
+        "analysis": {
+            "analyzer": {
+                "ngram_analyzer": {
+                    "tokenizer": "ngram_tokenizer",
+                    "filter": ["lowercase"]
+                }
+            },
+            "tokenizer": {
+                "ngram_tokenizer": {
+                    "type": "ngram",
+                    "min_gram": 3,
+                    "max_gram": 4,
+                    "token_chars": ["letter", "digit"]
+                }
+            }
+        }
+    },
+    "mappings": {
+        "properties": {
+            "firstname": {"type": "text"},
+            "lastname": {
+                "type": "text",
+                "analyzer": "ngram_analyzer",
+                "search_analyzer": "standard"
+            },
+            "address": {
+                "type": "text",
+                "analyzer": "ngram_analyzer",
+                "search_analyzer": "standard"
+            },
+            "city": {"type": "keyword"},
+            "postal_code": {"type": "keyword"},
+            "country": {"type": "keyword"},
+            "email": {"type": "keyword"},
+            "phone": {"type": "keyword"},
+            "location": {"type": "geo_point"},
+            "last_modified": {"type": "date"}
+        }
+    }
+}
